@@ -1,5 +1,32 @@
-npm init -y
-npm install express
-express
-eslint
-jest
+{
+  "name": "project-github-action",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aliyas-22/node-github-advance-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Aliyas-22/node-github-advance-project/issues"
+  },
+  "homepage": "https://github.com/Aliyas-22/node-github-advance-project#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "eslint": "^10.0.3",
+    "jest": "^30.3.0"
+  }
+}
