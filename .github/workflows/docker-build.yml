@@ -25,8 +25,8 @@ jobs:
                   context: .
                   push: false
                   tags: |
-                      ${{ vars.DOCKERHUB_USERNAME }}/github-actions-practice-2:latest
-                      ${{ vars.DOCKERHUB_USERNAME }}/github-actions-practice-2:${{ github.sha }}
+                      ${{ vars.DOCKERHUB_USERNAME }}/node-github-actions-project:latest
+                      ${{ vars.DOCKERHUB_USERNAME }}/node-github-actions-project:${{ github.sha }}
 
             - name: build and push to dockerhub
               if: github.ref == 'refs/heads/main'
@@ -35,5 +35,5 @@ jobs:
                   context: .
                   push: true
                   tags: |
-                      ${{ vars.DOCKERHUB_USERNAME }}/github-actions-practice-2:latest
-                      ${{ vars.DOCKERHUB_USERNAME }}/github-actions-practice-2:${{ github.sha }}
+                      ${{ vars.DOCKERHUB_USERNAME }}/node-github-actions-project:latest
+                      ${{ vars.DOCKERHUB_USERNAME }}/node-github-actions-project:${{ github.sha }}
