@@ -1,0 +1,25 @@
+name: Deploy App
+
+on:
+    workflow_run:
+        workflows: ["docker build and push"] # removed extra space ✅
+        types: [completed]
+
+jobs:
+    deploy:
+        runs-on: self-hosted
+        if: ${{ github.event.workflow_run.conclusion == 'success' }} # added ✅
+
+        env:
+            DOCKERHUB_USER: ${{ vars.DOCKERHUB_USERNAME }}
+            DOCKER_TAG: ${{ github.sha }}
+
+        steps:
+            - name: Checkout Code
+              uses: actions/checkout@v4
+
+            - name: Docker Compose Down
+              run: docker compose down || true # || true ignores error if nothing running
+
+            - name: Docker Compose Up
+              run: docker compose up -d --force-recreate --pull always

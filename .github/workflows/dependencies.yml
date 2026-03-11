@@ -1,0 +1,21 @@
+name: dependency scan
+
+on:
+    workflow_call:
+jobs:
+    dependency-check:
+        runs-on: ubuntu-latest
+        steps:
+            - name: code checkout
+              uses: actions/checkout@v4
+
+            - name: setup node 18
+              uses: actions/setup-node@v4
+              with:
+                  node-version: "18"
+
+            - name: install dependencies
+              run: npm ci
+
+            - name: Run dependency vulnerability scan
+              run: npm audit --audit-level=high
