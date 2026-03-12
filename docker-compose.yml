@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   web:
-    image: ${DOCKERHUB_USER}/node-github-advance-project:${DOCKER_TAG}
+    image: ${DOCKERHUB_USER}/node-github-action-project:${DOCKER_TAG}
     container_name: node-app
     restart: always
     ports:
